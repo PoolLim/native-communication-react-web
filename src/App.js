@@ -17,15 +17,10 @@ function App() {
   const callNative = () => {
     if (isAndroid()) {
       const script = document.createElement("script");
-      script.text =
-        "const data = Android.callNativeFunction(); window.setMsg(data);";
+      script.text = "window.fromNative(Android.callNativeFunction());";
       document.body.appendChild(script);
     } else {
       try {
-        // const script = document.createElement("script");
-        // script.text =
-        //   'console.log(\'added script\'); window.fromNative(\'{"browsers":{"firefox":{"name":"Firefox","pref_url":"about:config","releases":{"1":{"release_date":"2004-11-09","status":"retired","engine":"Gecko","engine_version":"1.7"}}}}}\');';
-        // document.body.appendChild(script);
         window.webkit.messageHandlers.callbackHandler.postMessage(
           "callNativeFunction"
         );
@@ -48,7 +43,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div>v0.2</div>
+        <div>v0.4</div>
         <img src={logo} className="App-logo" alt="logo" />
         <button
           onClick={callNative}
