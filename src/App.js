@@ -38,6 +38,7 @@ function App() {
   };
 
   useEffect(() => {
+    window.setMsg = setMsg;
     window.fromNative = (data) => {
       console.log("from Native");
       const parsed = JSON.parse(data);
