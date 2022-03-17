@@ -3,16 +3,36 @@ import "./App.css";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [msg, setMsg] = useState("hello");
+  const isAndroid = () => {
+    const varUA = navigator.userAgent.toLowerCase();
+    if (varUA.indexOf("android") > -1) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const [msg, setMsg] = useState(`hello ${isAndroid() ? "Android" : "IOS"}`);
+
   const callNative = () => {
-    try {
-      window.webkit.messageHandlers.callbackHandler.postMessage(
-        "callNativeFunction"
-      );
-    } catch (e) {
-      const stringErr = e.toString();
-      console.log(stringErr);
-      setMsg(stringErr);
+    if (isAndroid()) {
+      const script = document.createElement("script");
+      script.text = "Android.callNativeFunction();";
+      document.body.appendChild(script);
+    } else {
+      try {
+        // const script = document.createElement("script");
+        // script.text =
+        //   'console.log(\'added script\'); window.fromNative(\'{"browsers":{"firefox":{"name":"Firefox","pref_url":"about:config","releases":{"1":{"release_date":"2004-11-09","status":"retired","engine":"Gecko","engine_version":"1.7"}}}}}\');';
+        // document.body.appendChild(script);
+        window.webkit.messageHandlers.callbackHandler.postMessage(
+          "callNativeFunction"
+        );
+      } catch (e) {
+        const stringErr = e.toString();
+        console.log(stringErr);
+        setMsg(stringErr);
+      }
     }
   };
 
@@ -22,11 +42,6 @@ function App() {
       const parsed = JSON.parse(data);
       setMsg(`from Native, data: ${JSON.stringify(parsed)}`);
     };
-
-    const script = document.createElement("script");
-    script.text =
-      'console.log(\'added script\'); window.fromNative(\'{"browsers":{"firefox":{"name":"Firefox","pref_url":"about:config","releases":{"1":{"release_date":"2004-11-09","status":"retired","engine":"Gecko","engine_version":"1.7"}}}}}\');';
-    document.body.appendChild(script);
   }, []);
   return (
     <div className="App">
