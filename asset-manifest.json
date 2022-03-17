@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/native-communication-react-web/static/css/main.073c9b0a.css",
-    "main.js": "/native-communication-react-web/static/js/main.58301b60.js",
+    "main.js": "/native-communication-react-web/static/js/main.2c007ca5.js",
     "static/js/787.798fc0b8.chunk.js": "/native-communication-react-web/static/js/787.798fc0b8.chunk.js",
     "static/media/logo.svg": "/native-communication-react-web/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/native-communication-react-web/index.html",
     "main.073c9b0a.css.map": "/native-communication-react-web/static/css/main.073c9b0a.css.map",
-    "main.58301b60.js.map": "/native-communication-react-web/static/js/main.58301b60.js.map",
+    "main.2c007ca5.js.map": "/native-communication-react-web/static/js/main.2c007ca5.js.map",
     "787.798fc0b8.chunk.js.map": "/native-communication-react-web/static/js/787.798fc0b8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.58301b60.js"
+    "static/js/main.2c007ca5.js"
   ]
 }
