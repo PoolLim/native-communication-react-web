@@ -19,8 +19,14 @@ function App() {
   useEffect(() => {
     window.fromNative = (data) => {
       console.log("from Native");
-      setMsg(`from Native, data: ${data}`);
+      const parsed = JSON.parse(data);
+      setMsg(`from Native, data: ${JSON.stringify(parsed)}`);
     };
+
+    const script = document.createElement("script");
+    script.text =
+      'console.log(\'added script\'); window.fromNative(\'{"browsers":{"firefox":{"name":"Firefox","pref_url":"about:config","releases":{"1":{"release_date":"2004-11-09","status":"retired","engine":"Gecko","engine_version":"1.7"}}}}}\');';
+    document.body.appendChild(script);
   }, []);
   return (
     <div className="App">
