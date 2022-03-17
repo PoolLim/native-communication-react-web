@@ -19,13 +19,13 @@ function App() {
   useEffect(() => {
     window.fromNative = (data) => {
       console.log("from Native");
-      setMsg(`from Native ${data}`);
+      setMsg(`from Native, data: ${data}`);
     };
   }, []);
-
   return (
     <div className="App">
       <header className="App-header">
+        <div>v0.1</div>
         <img src={logo} className="App-logo" alt="logo" />
         <button
           onClick={callNative}
