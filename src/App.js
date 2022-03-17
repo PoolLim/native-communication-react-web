@@ -1,11 +1,19 @@
 import logo from "./logo.svg";
 import "./App.css";
+import { useState } from "react";
 
 function App() {
+  const [msg, setMsg] = useState("hello");
   const callNative = () => {
-    window.webkit.messageHandlers.callbackHandler.postMessage(
-      "callNativeFunction"
-    );
+    try {
+      window.webkit.messageHandlers.callbackHandler.postMessage(
+        "callNativeFunction"
+      );
+    } catch (e) {
+      const stringErr = e.toString();
+      console.log(stringErr);
+      setMsg(stringErr);
+    }
   };
   return (
     <div className="App">
@@ -21,6 +29,7 @@ function App() {
         >
           Call Native
         </button>
+        <div>{msg}</div>
       </header>
     </div>
   );
