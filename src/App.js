@@ -17,9 +17,9 @@ function App() {
   };
 
   useEffect(() => {
-    window.fromNative = () => {
+    window.fromNative = (data) => {
       console.log("from Native");
-      setMsg("from Native");
+      setMsg(`from Native ${data}`);
     };
   }, []);
 
