@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [msg, setMsg] = useState("hello");
@@ -15,6 +15,14 @@ function App() {
       setMsg(stringErr);
     }
   };
+
+  useEffect(() => {
+    window.fromNative = () => {
+      console.log("from Native");
+      setMsg("from Native");
+    };
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
