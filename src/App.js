@@ -17,7 +17,8 @@ function App() {
   const callNative = () => {
     if (isAndroid()) {
       const script = document.createElement("script");
-      script.text = "Android.callNativeFunction();";
+      script.text =
+        "const data = Android.callNativeFunction(); window.setMsg(data);";
       document.body.appendChild(script);
     } else {
       try {
@@ -46,7 +47,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div>v0.1</div>
+        <div>v0.2</div>
         <img src={logo} className="App-logo" alt="logo" />
         <button
           onClick={callNative}
