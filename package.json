@@ -40,5 +40,5 @@
   "devDependencies": {
     "gh-pages": "^3.2.3"
   },
-  "homepage": "http://PoolLim.github.io/native-communication-web"
+  "homepage": "http://PoolLim.github.io/native-communication-react-web"
 }
