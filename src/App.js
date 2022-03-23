@@ -44,6 +44,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div>v0.4</div>
+        <input type={"number"} style={{ width: 200, height: 50 }}></input>
         <img src={logo} className="App-logo" alt="logo" />
         <button
           onClick={callNative}
